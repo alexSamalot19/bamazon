@@ -1,0 +1,12 @@
+item_id,product_name,department_name,price,stock_quantity
+1,PugMug,Home,20.00,300
+2,CelticsJersey,Sports,100.00,500
+3,deskLamp,Home,20.00,300
+4,ps4,electronics,400.00,500
+5,homeAssistant,electonics,100.00,700
+6,BruinsPoster,Sports,30.00,600
+7,PatriotsFootball,Sports,50.00,700
+8,RedSoxBaseball,Sports,30.00,800
+9,EarPods,electronics,150.00,1000
+10,HalloweenCostume,home,40.00,200
+  
