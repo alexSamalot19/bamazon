@@ -63,4 +63,7 @@ The application begins with the Bamazon inventory and the option to place an ord
 My name is Alex I am a bootcamp student whose portfolio can be found
 [here.]( https://alexsamalot19.github.io/Samalot-Alexander-Portfolio/)
 
+The GitHub Repo includes a table of relevant projects and where they can be found in the [README](https://github.com/alexSamalot19/Samalot-Alexander-Portfolio)
+
+
 I designed this app using existing APIs and packages listed in the **This App Utilizes** section. I utilized Node.js and mySQL to take in orders from customers and deplete stock from the store's inventory.
