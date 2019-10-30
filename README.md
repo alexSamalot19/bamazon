@@ -29,7 +29,7 @@ The application begins with the Bamazon inventory and the option to place an ord
 
 ![Start Page](assets/images/StartPage.png)
 
-   * When the user selects --Order--:
+   * When the user selects --Order-- :
 
      * The user is asked what item they would like to order
 
