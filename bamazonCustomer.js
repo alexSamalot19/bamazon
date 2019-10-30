@@ -35,7 +35,7 @@ connection.connect((err) => {
 
 function doCRUD() {
     displayTable();
-  getUserInputAsync();
+  
 }
 
 /**
@@ -146,6 +146,9 @@ console.log("You're order has been placed! \n")
 
 
 function displayTable(){
+
+  console.log('\n Bamazon Inventory:\n');
+
     connection.query("Select * FROM products", function(error,results){
         if (error) throw error;
 
@@ -160,6 +163,8 @@ function displayTable(){
         });
 
         console.log(t.toString());
+        console.log('\n \n');
+   getUserInputAsync();
 
     })
    
