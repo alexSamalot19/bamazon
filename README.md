@@ -39,7 +39,7 @@ The application begins with the Bamazon inventory and the option to place an ord
 
   *If the order exceeds the inventory the following message is shown
 
-     ![Excessive Order](assets/images/ExcessiveOrder.png)
+  ![Excessive Order](assets/images/ExcessiveOrder.png)
 
   * The user can then place a new order or leave the application
 
