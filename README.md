@@ -16,8 +16,11 @@ This is a command line interface program
 The file bamazonCustomer.js:
 
    * Provides the list of available inventory
+
      * Inventory is stored in initial.csv
+
        * This keeps a record of the table before updates are made
+       
      * schema.sql contains the initializations of the database and the table, it is recommended that the initial.csv be imported in mySQL table data import wizard
 
    * Allows the user the ability to order any amount of a product they identify by the item_id:
