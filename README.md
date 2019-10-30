@@ -37,7 +37,7 @@ The application begins with the Bamazon inventory and the option to place an ord
      
      ![Normal Order](assets/images/NormalOrder.png)
 
-  *If the order exceeds the inventory the following message is shown
+  * If the order exceeds the inventory the following message is shown
 
   ![Excessive Order](assets/images/ExcessiveOrder.png)
 
