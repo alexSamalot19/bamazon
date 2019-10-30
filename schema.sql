@@ -21,12 +21,5 @@ CREATE TABLE products
 );
 
 
-
-LOAD DATA LOCAL INFILE '/Users/alex/Documents/PREWORK_AMS/ASSIGNMENTS FOR SUB/homework_11/Instructions/bamazon/initial.csv'
--- -- '/Users/alex/Documents/PREWORK_AMS/CLASS/CLASS102219/Week12-Day03-TopMusic/Top1000Songs.csv' 
--- INTO TABLE products;
-
--- SHOW VARIABLES LIKE "secure_file_priv";
-
   SELECT *
   FROM products;
