@@ -97,12 +97,12 @@ function placeOrder() {
       function (err, res) {
         if (err) throw err;
 
-        let orderID = inquirerResponse.orderAmount;
+        let orderID = inquirerResponse.order;
         if (inquirerResponse.orderAmount < res[0].stock_quantity) {
           let newStock = res[0].stock_quantity - inquirerResponse.orderAmount;
-          let orderBill = res[0].price * orderID;
+          let orderBill = res[0].price * inquirerResponse.orderAmount;
           console.log("Your order total is: $" + orderBill);
-          updateProduct(newStock, orderID);
+          updateProduct(newStock, orderID,orderBill);
 
         } else {
           console.log("Insufficient Quantity!")
@@ -118,17 +118,19 @@ function placeOrder() {
   )
 };
 
-function updateProduct(newStock, orderID) {
+function updateProduct(newStock, orderID,orderBill) {
 
   const query = connection.query(
     'UPDATE products SET ? WHERE ?',
     [
       {
         stock_quantity: newStock,
+        product_sales: orderBill,
       },
       {
         item_id: orderID,
       },
+      
     ],
     function (err, res) {
       if (err) throw err;
@@ -159,6 +161,7 @@ function displayTable(){
             t.cell('department_name', product.department_name);
             t.cell('price', product.price);
             t.cell('stock_quantity', product.stock_quantity);
+            t.cell('product_sales', product.product_sales);
             t.newRow();
         });
 

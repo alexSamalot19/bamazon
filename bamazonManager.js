@@ -46,7 +46,7 @@ function doCRUD() {
 
 
 function getUserInputAsync() {
-
+console.log('\n \n')
     return inquirer.prompt([
         {
             name: 'type',
@@ -94,8 +94,21 @@ function viewProductsForSale() {
     connection.query('SELECT * FROM products', function (err, res) {
         if (err) throw err;
         // Log all results of the SELECT statement
-        console.log(res);
-        getUserInputAsync()
+        var t = new Table;
+        res.forEach(function (product) {
+            t.cell('item_id', product.item_id);
+            t.cell('product_name', product.product_name);
+            t.cell('department_name', product.department_name);
+            t.cell('price', product.price);
+            t.cell('stock_quantity', product.stock_quantity);
+            t.cell('product_sales', product.product_sales);
+            t.newRow();
+        });
+
+        console.log(t.toString());
+        console.log('\n \n');
+        getUserInputAsync();
+
     });
 };
 
@@ -104,13 +117,26 @@ function viewProductsForSale() {
  */
 function viewLowInventory() {
     console.log('Selecting all products...\n');
-    connection.query('SELECT * FROM products WHERE stock_quantity <= 300', function (err, res) {
+    connection.query('SELECT * FROM products WHERE stock_quantity <= 5', function (err, res) {
         if (err) throw err;
-        // Log all results of the SELECT statement
-        console.log(res);
-        getUserInputAsync()
+
+        var t = new Table;
+        res.forEach(function (product) {
+            t.cell('item_id', product.item_id);
+            t.cell('product_name', product.product_name);
+            t.cell('department_name', product.department_name);
+            t.cell('price', product.price);
+            t.cell('stock_quantity', product.stock_quantity);
+            t.cell('product_sales', product.product_sales);
+            t.newRow();
+
+        
     });
-}
+    console.log(t.toString());
+    console.log('\n \n');
+    getUserInputAsync();
+});
+};
 
 /**
  * Reads all products from the DB
@@ -198,6 +224,11 @@ function addNewProduct() {
             name: 'stock_quantity',
             message: 'How Many? \n',
         },
+        {
+            name: 'product_sales',
+            message: 'How much has already been sold? \n',
+        },
+        
     ]).then(function (inquirerResponse) {
         // console.log(inquirerResponse.order);
 
@@ -207,15 +238,10 @@ function addNewProduct() {
             [
                 {
                     product_name: inquirerResponse.product_name,
-                },
-                {
                     department_name: inquirerResponse.department_name,
-                },
-                {
                     price: inquirerResponse.price,
-                },
-                {
                     stock_quantity: inquirerResponse.stock_quantity,
+                    product_sales: inquirerResponse.product_sales,
                 },
             ],
             function (err, res) {
